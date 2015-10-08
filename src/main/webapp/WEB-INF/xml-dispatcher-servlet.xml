@@ -24,7 +24,18 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 <mvc:annotation-driven />
 <tx:annotation-driven />
 
+<!--
 <jee:jndi-lookup id="ds" jndi-name="java:/jboss/MySqlDS" resource-ref="true" />
+-->
+
+<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/world" />
+		<property name="username" value="appuser" />
+		<property name="password" value="appuser" />
+</bean>
+
 
 <bean id="persistLog" class="com.cl.business.PersistLog" />
 
